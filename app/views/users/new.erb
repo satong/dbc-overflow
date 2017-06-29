@@ -1,2 +1,17 @@
-Registration form
-Show errors
+<h2>Create an account</h2>
+
+<% if @errors %>
+  <span>Something went wrong:</span>
+  <ul class="errors">
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<form id="register" action="/register" method="post" class="quirks">
+  <label for="email" class="label">Email:</label>
+  <input type="email" name="user[email]">
+  <br>
+  <%= erb :'_user_form', layout: false %>
+</form>

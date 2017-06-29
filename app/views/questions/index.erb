@@ -1,7 +1,11 @@
-List all questions
-  For each question:
-  - Title (links to question page of that question)
-  - Votes (count)
-  - Answers (count)
-  - username (of the person who posted question)
-  - last updated (based on question edit time)
+<div class="container">
+  <a href="/questions/new">Create new question</a>
+  <% if @questions %>
+    <ul class = "questions_list">
+      <% @questions.each do |question| %>
+        <%= erb :"questions/_question", layout: false, locals: {question: question} %>
+      <% end %>
+    </ul>
+  <% end %>
+
+</div>
