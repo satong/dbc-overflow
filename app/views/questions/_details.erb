@@ -1,0 +1,21 @@
+<div class="details">
+  <div class="vote-ui">
+    <% if logged_in? %>
+    <form method="question" action='/questions/<%= detail.id %>/upvote' class="inline">
+      <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">⬆️</button>
+    </form>
+    <h3><%= detail.votes.up.count - detail.votes.down.count %></h3>
+    <form method="question" action='/questions/<%= detail.id %>/downvote' class="inline">
+      <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">⬇️</button>
+    </form>
+    <% end %>
+  </div>
+  <p><%= detail.body %></p>
+  <p><%=detail.user.username %></p>
+  <h3> Comments: </h3>
+  <ul class="comments">
+    <% detail.comments.each do |comment| %>
+    <li><%=comment.body%> - <%= comment.user.username %></li>
+    <% end %>
+  </ul>
+</div>
