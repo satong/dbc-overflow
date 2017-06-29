@@ -1,0 +1,11 @@
+<div class="container">
+  <a href="/questions/new">Create new question</a>
+  <% if @questions %>
+    <ul class = "questions_list">
+      <% @questions.each do |question| %>
+        <%= erb :"questions/_question", layout: false, locals: {question: question} %>
+      <% end %>
+    </ul>
+  <% end %>
+
+</div>

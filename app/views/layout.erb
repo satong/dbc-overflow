@@ -15,9 +15,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>DBC Overflow</title>
 </head>
 <body>
-  <%= yield %>
+  <header role="banner">
+    <div class="max-w-900 center wrap-float">
+      <nav class="clearfix mar-b-1 mar-t-2">
+        <ul class="no-bullets no-margin no-padding right">
+          <% if logged_in? %>
+            <li class="pipe-separate left"><a href="/users/<%=current_user.id%>"><%= current_user.username %></a></li>
+            <li class="pipe-separate left"><a href="/logout">logout</a></li>
+          <% else %>
+            <li class="pipe-separate left"><a href="/register">register</a></li>
+            <li class="pipe-separate left"><a href="/login">login</a></li>
+          <% end %>
+          <li class="pipe-separate left"><a href="/">home</a></li>
+        </ul>
+      </nav>
+  </header>
+  <div class="pad-t-2 pad-s-1-4 pad-b-8 mar-b-8">
+    <div class="max-w-900 center">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>
