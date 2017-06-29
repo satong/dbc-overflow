@@ -1,6 +1,23 @@
 nav bar
 
-Question title
+<h1><%=@question.title %></h1>
+
+<%= erb :"questions/_details", layout: false, locals: {detail: @question} %>
+
+<br>
+<h2>Answers:</h2>
+
+<ul>
+  <% @question.answers.each do |answer|  %>
+  <li>
+    <%= erb :"questions/_details", layout: false, locals: {detail: answer} %>
+  </li>
+  <% end %>
+</ul>
+
+
+<!-- 
+
 question author (username)
 votes for the question
 
@@ -10,3 +27,5 @@ voting UI (for question - use AJAX)
 
 answer list (use AJAX)
 - show the first xx number of characters and then use AJAX to reveal the full answer body upon click
+
+ -->
