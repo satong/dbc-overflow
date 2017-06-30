@@ -1,4 +1,4 @@
 <h1>Post your answer!</h1>
 <form action="./new" method="post">
-  <%= erb :'_body', layout: false %>
+  <%= erb :'_body', layout: false, locals: {thing: nil} %>
 </form>

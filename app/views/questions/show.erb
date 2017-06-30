@@ -1,8 +1,8 @@
 <h1><%=@question.title %></h1>
 
 <%= erb :"_details", layout: false, locals: {detail: @question} %>
-
 <br>
+
 <h2>Answers:</h2>
 <h4><a href='<%= @question.get_route %>/answers/new'>Add an answer</a></h4>
 <ul>

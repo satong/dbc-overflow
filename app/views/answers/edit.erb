@@ -1,0 +1,5 @@
+<h1>Edit your Answer</h1>
+<form action="/answers/<%= @answer.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <%= erb :'_body', layout: false, locals: {thing: @answer} %>
+</form>
