@@ -1,0 +1,5 @@
+<h1>Edit your Comment</h1>
+<form action="/comments/<%= @comment.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <%= erb :'_body', layout: false, locals: {thing: @comment} %>
+</form>

@@ -58,6 +58,32 @@ put '/answers/:id' do
   redirect "#{@answer.get_redirect_route}"
 end
 
+delete '/answers/:id' do
+  @answer = Answer.find(params[:id])
+  @question =  @answer.question.id
+  @answer.destroy
+  redirect "/questions/#{@question}"
+end
+
+
+get '/comments/:id/edit' do
+  @comment = Comment.find(params[:id])
+  erb :'comments/edit'
+end
+
+put '/comments/:id' do
+  @comment = Comment.find(params[:id])
+  @comment.update_attributes(body: params[:body])
+  redirect "#{@comment.get_redirect_route}"
+end
+
+delete '/comments/:id' do
+  @comment = Comment.find(params[:id])
+  @redirect = @comment.get_redirect_route
+  @comment.destroy
+  redirect "#{@redirect}"
+end
+
 get '/:commentable_type/:commentable_id/comments/new' do
   erb :'comments/new'
 end

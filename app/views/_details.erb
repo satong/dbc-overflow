@@ -14,6 +14,11 @@
   <ul class="comments">
     <% detail.comments.each do |comment| %>
     <li><%= erb :"_vote", layout: false, locals: {thing: comment} %><%=comment.body%> - <%= comment.user.username %></li>
+    <a href="<%= comment.get_route %>/edit">Edit</a>
+    <form method="post" action="<%= comment.get_route %>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" name="delete" value="Delete">
+    </form>
     <% end %>
   </ul>
 </div>
