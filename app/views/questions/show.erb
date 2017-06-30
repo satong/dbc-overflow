@@ -1,14 +1,14 @@
 <h1><%=@question.title %></h1>
 
-<%= erb :"questions/_details", layout: false, locals: {detail: @question} %>
+<%= erb :"_details", layout: false, locals: {detail: @question} %>
 
 <br>
 <h2>Answers:</h2>
-
+<h4><a href='<%= @question.get_route %>/answers/new'>Add an answer</a></h4>
 <ul>
   <% @question.answers.each do |answer|  %>
   <li>
-    <%= erb :"questions/_details", layout: false, locals: {detail: answer} %>
+    <%= erb :"_details", layout: false, locals: {detail: answer} %>
   </li>
   <% end %>
 </ul>
