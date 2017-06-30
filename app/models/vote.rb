@@ -6,4 +6,5 @@ class Vote < ActiveRecord::Base
   scope :down, -> { where(direction: "down") }
 
   # validates :user_id, :uniqueness => {:scope => [:votable_id, :votable_type]}
+
 end
