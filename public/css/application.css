@@ -5,19 +5,19 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-}*/
+  }*/
 
 
-/* element styling */
-html {
-  height: 100%;
-  background-attachment: fixed;
-  line-height: 1.4;
-}
+  /* element styling */
+  html {
+    height: 100%;
+    background-attachment: fixed;
+    line-height: 1.4;
+  }
 
-body {
-  padding-top: 100px;
-  counter-reset:section;
+  body {
+    padding-top: 100px;
+    counter-reset:section;
   /*background-color: #F6F6EF;
   font-family: Verdana;
   max-width: 700px;
@@ -72,10 +72,10 @@ article h2 {
 }
 
 article:before {
-  counter-increment: section;
+  /*counter-increment: section;*/
   color: #8C8C8C;
   font-size: 10pt;
-  content: counter(section) ". ";
+  /*content: counter(section) ". ";*/
 }
 
 article h2 a {
@@ -109,3 +109,92 @@ input[type=text], input[type=password], input[type=email], textarea {
 .no-padding {
   padding: 0;
 }
+
+.content {
+  margin: 0 auto;
+}
+
+
+.details-box {
+  position: relative;
+  width: 100%;
+  padding: 10px 0px 10px 20px; 
+  border: 1px solid red;
+  clear: both;
+}
+
+
+.vote-box { 
+  position: absolute;
+  left: 0px;
+  width: 40px;
+  border: 1px solid red;
+  text-align: center;
+}
+
+.body-text {
+  border: 1px solid red;
+  margin-left: 50px;
+  min-height: 150px;
+}
+
+.username-box {
+  border: 1px solid red;
+  margin-left: 50px;
+}
+
+.edit-box {
+  border: 1px solid red;
+  margin-left: 50px;
+}
+
+.add-comment {
+  border: 1px solid red;
+  margin-left: 50px;
+}
+
+.comments-box {
+  position: relative;
+  border: 1px solid red;
+  margin-left: 50px;
+  min-height: 170px;
+}
+.individual-comment {
+  border: 1px solid red;
+  margin-left: 50px;
+}
+
+.comment-text {
+  border: 1px solid red;
+  margin-left: 50px;
+}
+
+.comment-edit {
+  border: 1px solid red;
+  margin-left: 50px;
+}
+.vote-button {
+  font-size: 1.5em;
+}
+
+.body-details {
+
+  margin-left: 50px;
+}
+
+.up-button {
+  border: 1px solid red;
+}
+
+.down-button {
+  border: 1px solid red;
+}
+
+.vote-number {
+  border: 1px solid red;
+  font-size: 1.4em;
+}
+
+
+
+
