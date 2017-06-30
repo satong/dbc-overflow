@@ -1,1 +1,9 @@
 NEW QUESTION FORM
+<h1>Post your question!</h1>
+<form action="/questions/new" method="post">
+  <label for="title">Title:</label>
+  <br>
+  <input type="text" name="title">
+  <br>
+  <%= erb :'_body', layout: false %>
+</form>
