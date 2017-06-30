@@ -18,6 +18,15 @@ get '/questions/:id' do
   erb :'questions/show'
 end
 
+get '/questions/:id/answers/new' do
+  erb :'answers/new'
+end
+
+post '/questions/:id/answers/new' do
+  answer = Answer.create({user_id: current_user.id, question_id: params[:id], body: params[:body]})
+  redirect "#{answer.get_redirect_route}"
+end
+
 get '/:commentable_type/:commentable_id/comments/new' do
   erb :'comments/new'
 end

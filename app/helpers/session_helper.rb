@@ -20,4 +20,8 @@ helpers do
     # object if exists, nil if not, !! returns a forced boolean
   end
 
+  def authorized_user?(item)
+    logged_in? && current_user.id == item.user_id
+  end
+
 end
