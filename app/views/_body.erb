@@ -1,9 +1,5 @@
 <label for="body" class="label">Body:</label><br>
-<textarea name="body" rows="8" cols="60" placeholder="Enter text here.">
-<% if thing %>
-<%= thing.body %>
-<% end %>
-  </textarea>
+<textarea name="body" rows="8" cols="60" placeholder="Enter text here."><% if thing %><%= thing.body %><% end %></textarea>
 <br>
 
 <input type="submit" value="Submit" class="submit">

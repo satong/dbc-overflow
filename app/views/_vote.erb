@@ -1,9 +1,13 @@
 <div class="vote-ui">
+  <% if logged_in? && votable_user?(thing)%>
   <form method="post" action='<%= thing.get_route %>/up' class="inline">
     <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">⬆️</button>
   </form>
+  <% end %>
   <h3><%= thing.votes.up.count - thing.votes.down.count %></h3>
+  <% if logged_in? && votable_user?(thing)%>
   <form method="post" action='<%= thing.get_route %>/down' class="inline">
     <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">⬇️</button>
   </form>
+  <% end %>
 </div>

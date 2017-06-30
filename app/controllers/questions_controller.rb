@@ -20,19 +20,22 @@ end
 
 get '/questions/:id/edit' do
   @question = Question.find(params[:id])
+  redirect "/questions/#{params[:id]}" unless authorized_user?(@question)
   erb :'questions/edit'
 end
 
 put '/questions/:id' do
-  @question = Question.find(params[:id])
-  @question.update_attributes(title: params[:title], body: params[:body])
+  question = Question.find(params[:id])
+  redirect "/questions/#{params[:id]}" unless authorized_user?(question)
+  question.update_attributes(title: params[:title], body: params[:body])
   redirect "/questions/#{params[:id]}"
 end
 
 
 delete '/questions/:id' do
-  @question = Question.find(params[:id])
-  @question.destroy
+  question = Question.find(params[:id])
+  redirect "/questions/#{params[:id]}" unless authorized_user?(question)
+  question.destroy
   redirect "/questions"
 end
 
@@ -49,39 +52,45 @@ end
 
 get '/answers/:id/edit' do
   @answer = Answer.find(params[:id])
+  redirect "#{@answer.get_redirect_route}" unless authorized_user?(@answer)
   erb :'answers/edit'
 end
 
 put '/answers/:id' do
-  @answer = Answer.find(params[:id])
-  @answer.update_attributes(body: params[:body])
-  redirect "#{@answer.get_redirect_route}"
+  answer = Answer.find(params[:id])
+  redirect "#{answer.get_redirect_route}" unless authorized_user?(answer)
+  answer.update_attributes(body: params[:body])
+  redirect "#{answer.get_redirect_route}"
 end
 
 delete '/answers/:id' do
-  @answer = Answer.find(params[:id])
-  @question =  @answer.question.id
-  @answer.destroy
-  redirect "/questions/#{@question}"
+  answer = Answer.find(params[:id])
+  redirect "#{answer.get_redirect_route}" unless authorized_user?(answer)
+  question =  answer.question.id
+  answer.destroy
+  redirect "/questions/#{question}"
 end
 
 
 get '/comments/:id/edit' do
   @comment = Comment.find(params[:id])
+  redirect "#{@comment.get_redirect_route}" unless authorized_user?(@comment)
   erb :'comments/edit'
 end
 
 put '/comments/:id' do
-  @comment = Comment.find(params[:id])
-  @comment.update_attributes(body: params[:body])
-  redirect "#{@comment.get_redirect_route}"
+  comment = Comment.find(params[:id])
+  redirect "#{comment.get_redirect_route}" unless authorized_user?(comment)
+  comment.update_attributes(body: params[:body])
+  redirect "#{comment.get_redirect_route}"
 end
 
 delete '/comments/:id' do
-  @comment = Comment.find(params[:id])
-  @redirect = @comment.get_redirect_route
-  @comment.destroy
-  redirect "#{@redirect}"
+  comment = Comment.find(params[:id])
+  redirect = comment.get_redirect_route
+  redirect "#{redirect}" unless authorized_user?(comment)
+  comment.destroy
+  redirect "#{redirect}"
 end
 
 get '/:commentable_type/:commentable_id/comments/new' do

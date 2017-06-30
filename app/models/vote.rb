@@ -5,7 +5,7 @@ class Vote < ActiveRecord::Base
   scope :up, -> { where(direction: "up") }
   scope :down, -> { where(direction: "down") }
 
-  # validates :user_id, :uniqueness => {:scope => [:votable_id, :votable_type]}
+  validates :user_id, :uniqueness => {:scope => [:votable_id, :votable_type, :direction]}
 
   def get_redirect_route
     if self.votable_type == "Question"
