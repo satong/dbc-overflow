@@ -17,8 +17,8 @@ html {
 
 body {
   padding-top: 100px;
-/*  counter-reset:section;
-  background-color: #F6F6EF;
+  counter-reset:section;
+  /*background-color: #F6F6EF;
   font-family: Verdana;
   max-width: 700px;
   margin: 0 auto;*/
@@ -91,4 +91,21 @@ article p {
 
 input[type=text], input[type=password], input[type=email], textarea {
   color: #05724f;
+}
+
+.vote-button {
+  background-color: transparent;
+  border: none;
+  font-size: 10pt;
+  color: #8C8C8C;
+  vertical-align: center;
+}
+
+
+.inline {
+  display: inline;
+}
+
+.no-padding {
+  padding: 0;
 }
