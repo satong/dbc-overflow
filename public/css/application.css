@@ -121,7 +121,6 @@ input[type=text], input[type=password], input[type=email], textarea {
   padding: 10px 0px 10px 20px; 
   border: 1px solid red;
   clear: both;
-  min-height: 170px;
 }
 
 
@@ -136,6 +135,7 @@ input[type=text], input[type=password], input[type=email], textarea {
 .body-text {
   border: 1px solid red;
   margin-left: 50px;
+  min-height: 150px;
 }
 
 .username-box {
