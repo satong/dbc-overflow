@@ -18,6 +18,18 @@ get '/questions/:id' do
   erb :'questions/show'
 end
 
+get '/questions/:id/edit' do
+  @question = Question.find(params[:id])
+  erb :'questions/edit'
+end
+
+put '/questions/:id' do
+  @question = Question.find(params[:id])
+  @question.update_attributes(title: params[:title], body: params[:body])
+  redirect "/questions/#{params[:id]}"
+end
+
+
 get '/questions/:id/answers/new' do
   erb :'answers/new'
 end
