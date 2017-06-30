@@ -1,9 +1,9 @@
 <article id="<%= question.id %>">
   <% if logged_in? %>
-  <form method="question" action='/questions/<%= question.id %>/upvote' class="inline">
+  <form method="post" action='<%= question.get_route %>/up' class="inline">
     <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">⬆️</button>
   </form>
-  <form method="question" action='/questions/<%= question.id %>/downvote' class="inline">
+  <form method="post" action='<%= question.get_route %>/down' class="inline">
     <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">⬇️</button>
   </form>
   <% end %>

@@ -8,4 +8,12 @@ class Answer < ActiveRecord::Base
     self.body[0..23]
   end
 
+  def get_route
+    "/answers/#{self.id}"
+  end
+
+  def get_redirect_route
+    "/questions/#{self.question.id}"
+  end
+
 end
