@@ -94,15 +94,6 @@ input[type=text], input[type=password], input[type=email], textarea {
   color: #8C8C8C;
 }
 
-.vote-button {
-  background-color: transparent;
-  border: none;
-  font-size: 10pt;
-  color: #8C8C8C;
-  vertical-align: center;
-}
-
-
 .inline {
   display: inline;
 }
@@ -122,7 +113,6 @@ input[type=text], input[type=password], input[type=email], textarea {
   clear: both;
 }
 
-
 .vote-box {
   position: absolute;
   left: 0px;
@@ -131,13 +121,38 @@ input[type=text], input[type=password], input[type=email], textarea {
   text-align: center;
 }
 
+.vote-button {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  color: #8C8C8C;
+  vertical-align: center;
+}
+
+.up-button span {
+  text-align: center;
+  vertical-align: middle;
+  margin-bottom: 5px;
+}
+
+.down-button span {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.vote-number {
+  font-size: 1.4em;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
 .body-text {
   margin-left: 50px;
   min-height: 150px;
 }
 
 .edit-box {
-
   margin-left: 50px;
   height: 25px;
   padding-right: 5px;
@@ -170,22 +185,9 @@ input[type=text], input[type=password], input[type=email], textarea {
   height: 25px;
   padding-right: 5px;
 }
-.vote-button {
-  font-size: 1.5em;
-}
 
 .body-details {
   margin-left: 50px;
-}
-
-.up-button {
-}
-
-.down-button {
-}
-
-.vote-number {
-  font-size: 1.4em;
 }
 
 .max-w-900 {
@@ -208,5 +210,5 @@ input[type=text], input[type=password], input[type=email], textarea {
 .answer-box {
   border: 2px solid #ccc;
   border-radius: 10px;
-  padding: 0 10px 0 10px;
+  padding: 0 10px 0 20px;
 }
