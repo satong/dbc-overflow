@@ -4,26 +4,23 @@
   </div>
   <div class="edit-box">
     <% if authorized_user?(detail) %>
-    <a href="<%= detail.get_route %>/edit">Edit</a>
-    <form method="post" action="<%= detail.get_route %>">
+    <form method="get" action="<%= detail.get_route %>/edit" class="right">
+      <input type="submit" name="edit" value="Edit" class="btn btn-default inline btn-xs">
+    <form method="post" action="<%= detail.get_route %>" class="right">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" name="delete" value="Delete">
+      <input type="submit" name="delete" value="Delete" class="btn btn-default inline btn-xs">
     </form>
     <% end %>
   </div>
 
   <div class="body-text">
     <p><%= detail.body %></p>
+    <p style="color: #808080"><i>Written by: <%=detail.user.username %></i></p>
   </div>
 
-  <div class="username-box">
-    <p><%=detail.user.username %></p>
-  </div>
-
-
-  <div class="add-comment"> 
-   <h3>Comments: </h3>
-   <h4><a href='<%= detail.get_route %>/comments/new'>Add a comment</a></h4>
+  <div class="add-comment">
+   <h4>Comments: </h4>
+   <h5><a href='<%= detail.get_route %>/comments/new'>Add a comment</a></h5>
  </div>
  <% detail.comments.each do |comment| %>
  <div class="comments-box">
@@ -34,19 +31,19 @@
    <div class="vote-box">
     <%= erb :"_vote", layout: false, locals: {thing: comment} %>
   </div>
-
-  <div class="comment-text">
-    <%=comment.body%> - <%= comment.user.username %>
-  </div>
-
   <div class="comment-edit">
     <% if authorized_user?(comment) %>
-    <a href="<%= comment.get_route %>/edit">Edit</a>
-    <form method="post" action="<%= comment.get_route %>">
+    <form method="get" action="<%= comment.get_route %>/edit" class="right">
+      <input type="submit" name="edit" value="Edit" class="btn btn-default inline btn-xs">
+    <form method="post" action="<%= comment.get_route %>" class="right">
       <input type="hidden" name="_method" value="delete">
-      <input type="submit" name="delete" value="Delete">
+      <input type="submit" name="delete" value="Delete" class="btn btn-default inline btn-xs">
     </form>
     <% end %>
+  </div>
+  <div class="comment-text">
+    <p><%=comment.body%></p>
+    <p style="color: #808080"><i>Written by: <%=comment.user.username %></i></p>
   </div>
 </div>
 

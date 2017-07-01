@@ -27,16 +27,16 @@
 </head>
 <body>
 
-  <div class="container-fluid">
+  <div class="container-fluid max-w-900">
 
     <nav class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
+      <div class="container-fluid max-w-900">
         <div class="navbar-header">
           <a class="navbar-brand href=">
             <img alt="Brand" src="../images/brand.png">
           </a>
         </div>
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav nav-right">
             <% if logged_in? %>
               <li class=""><a href="/users/<%=current_user.id%>"><%= current_user.username %></a></li>
               <li class=""><a href="/logout">logout</a></li>
@@ -51,12 +51,12 @@
     </nav>
 
 
-    <div class="row">
-      
+    <div class="row max-w-900">
+
         <div class="content">
         <%= yield %>
         </div>
-      
+
     </div>
 
   </div><!-- end main container-fluid -->

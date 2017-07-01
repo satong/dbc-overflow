@@ -18,6 +18,7 @@
   body {
     padding-top: 100px;
     counter-reset:section;
+    background-color: rgba(192,100,77,0) !important;
   /*background-color: #F6F6EF;
   font-family: Verdana;
   max-width: 700px;
@@ -72,10 +73,10 @@ article h2 {
 }
 
 article:before {
-  /*counter-increment: section;*/
+  counter-increment: section;
   color: #8C8C8C;
   font-size: 10pt;
-  /*content: counter(section) ". ";*/
+  content: counter(section) ". ";
 }
 
 article h2 a {
@@ -90,7 +91,7 @@ article p {
 }
 
 input[type=text], input[type=password], input[type=email], textarea {
-  color: #05724f;
+  color: #8C8C8C;
 }
 
 .vote-button {
@@ -114,87 +115,98 @@ input[type=text], input[type=password], input[type=email], textarea {
   margin: 0 auto;
 }
 
-
 .details-box {
   position: relative;
   width: 100%;
-  padding: 10px 0px 10px 20px; 
-  border: 1px solid red;
+  padding: 10px 10px 10px 20px;
   clear: both;
 }
 
 
-.vote-box { 
+.vote-box {
   position: absolute;
   left: 0px;
   width: 40px;
-  border: 1px solid red;
+  margin-left: 10px;
   text-align: center;
 }
 
 .body-text {
-  border: 1px solid red;
   margin-left: 50px;
   min-height: 150px;
 }
 
-.username-box {
-  border: 1px solid red;
-  margin-left: 50px;
-}
-
 .edit-box {
-  border: 1px solid red;
+
   margin-left: 50px;
+  height: 25px;
+  padding-right: 5px;
 }
 
 .add-comment {
-  border: 1px solid red;
+  border-top: 1px solid #ccc;
   margin-left: 50px;
+  padding-left: 10px;
 }
 
 .comments-box {
   position: relative;
-  border: 1px solid red;
+  margin: 10px;
   margin-left: 50px;
-  min-height: 170px;
+  min-height: 120px;
+  background-color: #f8f8f8;
+  padding: 10px;
 }
 .individual-comment {
-  border: 1px solid red;
   margin-left: 50px;
 }
 
 .comment-text {
-  border: 1px solid red;
   margin-left: 50px;
 }
 
 .comment-edit {
-  border: 1px solid red;
   margin-left: 50px;
+  height: 25px;
+  padding-right: 5px;
 }
 .vote-button {
   font-size: 1.5em;
 }
 
 .body-details {
-
   margin-left: 50px;
 }
 
 .up-button {
-  border: 1px solid red;
 }
 
 .down-button {
-  border: 1px solid red;
 }
 
 .vote-number {
-  border: 1px solid red;
   font-size: 1.4em;
 }
 
+.max-w-900 {
+  max-width: 900px;
+}
 
+.nav-right {
+  float: right !important;
+}
 
+.label {
+  color: #8C8C8C !important;
+  font-size: 100% !important;
+}
 
+.right {
+  float: right !important;
+}
+
+.answer-box {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 0 10px 0 10px;
+}
