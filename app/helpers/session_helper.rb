@@ -24,8 +24,4 @@ helpers do
     logged_in? && current_user.id == item.user_id
   end
 
-  def votable_user?(item)
-    logged_in? && current_user.id != item.user_id
-  end
-
 end

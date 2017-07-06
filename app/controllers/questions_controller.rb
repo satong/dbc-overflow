@@ -63,14 +63,33 @@ post '/:commentable_type/:commentable_id/comments/new' do
   redirect "#{comment.commentable.get_redirect_route}"
 end
 
+# post '/:votable_type/:votable_id/:direction' do
+#   redirect '/login' unless logged_in?
+#   redirect '/error' if not_votable?
+#
+#   object = params[:votable_type][0..-2].capitalize
+#   vote = Vote.create({direction: params[:direction], user_id: current_user.id, votable_type: object, votable_id: params[:votable_id]})
+#   redirect "#{vote.get_redirect_route}"
+#
+# end
+
+
 post '/:votable_type/:votable_id/:direction' do
   redirect '/login' unless logged_in?
+
   object = params[:votable_type][0..-2].capitalize
-  vote = Vote.create({direction: params[:direction], user_id: current_user.id, votable_type: object, votable_id: params[:votable_id]})
-  if votable_user?(vote.votable)
-    vote.save
-    redirect "#{vote.get_redirect_route}"
+  @vote = Vote.where(user_id: current_user.id, votable_type: object, votable_id: params[:votable_id]).first_or_initialize
+  @vote.direction = params[:direction]
+
+  if @vote.save
+    status 200
+    if request.xhr?
+      return "#{@vote.votable.votes.vote_number}"
+    else
+      redirect "#{@vote.get_redirect_route}"
+    end
   else
+    status 422
     redirect '/error'
   end
 end

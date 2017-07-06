@@ -129,15 +129,10 @@ input[type=text], input[type=password], input[type=email], textarea {
   vertical-align: center;
 }
 
-.up-button span {
+.vote-arrow span {
   text-align: center;
   vertical-align: middle;
   margin-bottom: 5px;
-}
-
-.down-button span {
-  text-align: center;
-  vertical-align: middle;
 }
 
 .vote-number {

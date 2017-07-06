@@ -4,8 +4,13 @@ class Vote < ActiveRecord::Base
 
   scope :up, -> { where(direction: "up") }
   scope :down, -> { where(direction: "down") }
+  scope :vote_number, -> { self.up.count - self.down.count }
 
-  validates :user_id, :uniqueness => {:scope => [:votable_id, :votable_type, :direction]}
+  validate :votable_user_check
+
+  def votable_user_check
+    errors.add(:user_id, "User cannot vote on own item") if user_id == self.votable.user_id
+  end
 
   def get_redirect_route
     if self.votable_type == "Question"
