@@ -4,6 +4,8 @@ class Answer < ActiveRecord::Base
   has_many :comments, as: :commentable
   has_many :votes, as: :votable
 
+  validates :body, presence: true
+
   def answer_preview
     self.body[0..23]
   end

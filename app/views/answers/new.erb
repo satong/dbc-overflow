@@ -1,4 +1,9 @@
-<h1>Post your answer!</h1>
-<form action="./new" method="post">
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+<form action="./new" method="post" id="new-answer-form">
+  <h3>Post your answer!</h3>
   <%= erb :'_body', layout: false, locals: {thing: nil} %>
 </form>
