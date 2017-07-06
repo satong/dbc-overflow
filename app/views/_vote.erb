@@ -1,5 +1,5 @@
 
-<div class="up-button">
+<div class="vote-arrow">
   <form method="post" action='<%= thing.get_route %>/up' class="inline">
     <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">
       <span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span>
@@ -8,10 +8,10 @@
 </div>
 
 <div class="vote-number">
-  <%= thing.votes.up.count - thing.votes.down.count %>
+  <%= thing.votes.vote_number %>
 </div>
 
-<div class="down-button">
+<div class="vote-arrow">
   <form method="post" action='<%= thing.get_route %>/down' class="inline">
     <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">
       <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
