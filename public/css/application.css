@@ -118,6 +118,7 @@ input[type=text], input[type=password], input[type=email], textarea {
   left: 0px;
   width: 40px;
   margin-left: 10px;
+  margin-top: 20px;
   text-align: center;
 }
 
@@ -144,7 +145,8 @@ input[type=text], input[type=password], input[type=email], textarea {
 
 .body-text {
   margin-left: 50px;
-  min-height: 150px;
+  margin-top: 10px;
+  min-height: 120px;
 }
 
 .edit-box {
@@ -163,22 +165,30 @@ input[type=text], input[type=password], input[type=email], textarea {
   position: relative;
   margin: 10px;
   margin-left: 50px;
-  min-height: 120px;
   background-color: #f8f8f8;
   padding: 10px;
 }
+
+.comment-vote {
+  margin-left: 50px;
+  padding-left: 10px;
+}
+
 .individual-comment {
   margin-left: 50px;
 }
 
 .comment-text {
   margin-left: 50px;
+  min-height: 65px;
+  border-bottom: 1px dotted #ccc;
 }
 
 .comment-edit {
   margin-left: 50px;
   height: 25px;
   padding-right: 5px;
+  padding-top: 10px;
 }
 
 .body-details {

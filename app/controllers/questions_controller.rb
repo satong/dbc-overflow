@@ -67,14 +67,27 @@ end
 
 get '/:commentable_type/:commentable_id/comments/new' do
   redirect '/login' unless logged_in?
-  erb :'comments/new'
+  if request.xhr?
+    erb :"comments/new", layout: false
+  else
+    erb :"comments/new"
+  end
 end
 
 post '/:commentable_type/:commentable_id/comments/new' do
   redirect '/login' unless logged_in?
   object = params[:commentable_type][0..-2].capitalize
-  comment = Comment.create({body: params[:body], user_id: current_user.id, commentable_type: object, commentable_id: params[:commentable_id]})
-  redirect "#{comment.commentable.get_redirect_route}"
+  @comment = Comment.new({body: params[:body], user_id: current_user.id, commentable_type: object, commentable_id: params[:commentable_id]})
+  if @comment.save
+    if request.xhr?
+      erb :"_comment", layout: false, locals: { comment: @comment}
+    else
+      redirect "#{@comment.commentable.get_redirect_route}"
+    end
+  else
+    @errors = @comment.errors.full_messages
+    erb :"comments/new"
+  end
 end
 
 # post '/:votable_type/:votable_id/:direction' do

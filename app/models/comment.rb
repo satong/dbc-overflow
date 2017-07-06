@@ -3,6 +3,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :commentable, polymorphic: true
 
+  validates :body, presence: true
 
   def get_route
     "/comments/#{self.id}"
