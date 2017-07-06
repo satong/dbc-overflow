@@ -10,8 +10,11 @@ class Comment < ActiveRecord::Base
   end
 
   def get_redirect_route
-    "/questions/#{self.commentable.id}" if self.commentable_type == "Question"
-    "/questions/#{self.commentable.question_id}" if self.commentable_type == "Answer"
+    if self.commentable_type == "Question"
+      return "/questions/#{self.commentable.id}"
+    elsif self.commentable_type == "Answer"
+      return "/questions/#{self.commentable.question_id}"
+    end
   end
 
 end

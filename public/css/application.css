@@ -180,7 +180,7 @@ input[type=text], input[type=password], input[type=email], textarea {
 
 .comment-text {
   margin-left: 50px;
-  min-height: 65px;
+  min-height: 85px;
   border-bottom: 1px dotted #ccc;
 }
 

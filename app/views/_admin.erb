@@ -1,0 +1,9 @@
+<% if authorized_user?(detail) %>
+<form method="get" action="<%= detail.get_route %>/edit" class="right">
+  <input type="submit" name="edit" value="Edit" class="btn btn-default inline btn-xs">
+</form>
+<form method="post" action="<%= detail.get_route %>" class="right">
+  <input type="hidden" name="_method" value="delete">
+  <input type="submit" name="delete" value="Delete" class="btn btn-default inline btn-xs">
+</form>
+<% end %>

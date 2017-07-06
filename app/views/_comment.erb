@@ -3,14 +3,7 @@
   <%= erb :"_vote", layout: false, locals: {thing: comment} %>
 </div>
 <div class="comment-edit">
-  <% if authorized_user?(comment) %>
-  <form method="get" action="<%= comment.get_route %>/edit" class="right">
-    <input type="submit" name="edit" value="Edit" class="btn btn-default inline btn-xs">
-  <form method="post" action="<%= comment.get_route %>" class="right">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" name="delete" value="Delete" class="btn btn-default inline btn-xs">
-  </form>
-  <% end %>
+  <%= erb :"_admin", layout: false, locals: {detail: comment}%>
 </div>
 <div class="comment-text">
   <p><%=comment.body%></p>
