@@ -42,13 +42,27 @@ end
 
 get '/questions/:id/answers/new' do
   redirect '/login' unless logged_in?
-  erb :'answers/new'
+  if request.xhr?
+    erb :"answers/new", layout: false
+  else
+    erb :"answers/new"
+  end
 end
 
 post '/questions/:id/answers/new' do
   redirect '/login' unless logged_in?
-  answer = Answer.create({user_id: current_user.id, question_id: params[:id], body: params[:body]})
-  redirect "#{answer.get_redirect_route}"
+  @answer = Answer.new({user_id: current_user.id, question_id: params[:id], body: params[:body]})
+
+  if @answer.save
+    if request.xhr?
+      erb :"_details", layout: false, locals: { detail: @answer}
+    else
+      redirect "#{@answer.get_redirect_route}"
+    end
+  else
+    @errors = @answer.errors.full_messages
+    erb :"answers/new"
+  end
 end
 
 get '/:commentable_type/:commentable_id/comments/new' do
@@ -90,6 +104,6 @@ post '/:votable_type/:votable_id/:direction' do
     end
   else
     status 422
-    redirect '/error'
+    # redirect '/error'
   end
 end

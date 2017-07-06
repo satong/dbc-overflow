@@ -6,7 +6,9 @@
 </div>
 <div class="answer-box">
 <h3>Answers:</h3>
-<h4><a href='<%= @question.get_route %>/answers/new'>Add an answer</a></h4>
+<h4><a href='<%= @question.get_route %>/answers/new' id="new-answer-link">Add an answer</a></h4>
+<div class="new-answer-submission">
+</div>
   <% @question.answers.each do |answer|  %>
     <%= erb :"_details", layout: false, locals: {detail: answer} %>
   <% end %>
