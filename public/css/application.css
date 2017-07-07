@@ -106,11 +106,15 @@ input[type=text], input[type=password], input[type=email], textarea {
   margin: 0 auto;
 }
 
-.details-box {
+.individual-detail {
   position: relative;
   width: 100%;
   padding: 10px 10px 10px 20px;
   clear: both;
+}
+
+.individual-comment {
+  margin-left: 50px;
 }
 
 .vote-box {
@@ -146,13 +150,23 @@ input[type=text], input[type=password], input[type=email], textarea {
 .body-text {
   margin-left: 50px;
   margin-top: 10px;
+}
+
+.q-or-a-text {
   min-height: 120px;
 }
+
+.comment-text {
+  min-height: 85px;
+  border-bottom: 1px dotted #ccc;
+}
+
 
 .edit-box {
   margin-left: 50px;
   height: 25px;
   padding-right: 5px;
+  padding-top: 10px;
 }
 
 .add-comment {
@@ -174,22 +188,6 @@ input[type=text], input[type=password], input[type=email], textarea {
   padding-left: 10px;
 }
 
-.individual-comment {
-  margin-left: 50px;
-}
-
-.comment-text {
-  margin-left: 50px;
-  min-height: 85px;
-  border-bottom: 1px dotted #ccc;
-}
-
-.comment-edit {
-  margin-left: 50px;
-  height: 25px;
-  padding-right: 5px;
-  padding-top: 10px;
-}
 
 .body-details {
   margin-left: 50px;
@@ -216,4 +214,8 @@ input[type=text], input[type=password], input[type=email], textarea {
   border: 2px solid #ccc;
   border-radius: 10px;
   padding: 0 10px 0 20px;
+}
+
+.hidden {
+  display: none;
 }

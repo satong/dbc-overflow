@@ -1,5 +1,5 @@
 <% if authorized_user?(detail) %>
-<form method="get" action="<%= detail.get_route %>/edit" class="right">
+<form method="get" action="<%= detail.get_route %>/edit" class="right get-edit-form">
   <input type="submit" name="edit" value="Edit" class="btn btn-default inline btn-xs">
 </form>
 <form method="post" action="<%= detail.get_route %>" class="right">

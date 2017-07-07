@@ -1,13 +1,14 @@
-<div class="details-box">
+<div class="detail-box individual-detail">
   <div class="vote-box">
     <%= erb :"_vote", layout: false, locals: {thing: detail}%>
   </div>
+  <div class="edit-master-box">
   <div class="edit-box">
     <%= erb :"_admin", layout: false, locals: {detail: detail}%>
   </div>
-
-    <div class="body-text">
-      <p><%= detail.body %></p>
+</div>
+    <div class="body-text q-or-a-text">
+      <p class="detail-text"><%= detail.body %></p>
       <p style="color: #808080"><i>Written by: <%=detail.user.username %></i></p>
     </div>
 
