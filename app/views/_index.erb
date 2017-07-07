@@ -1,10 +1,10 @@
 <article id="<%= question.id %>">
-  <form method="post" action='<%= question.get_route %>/up' class="inline">
+  <!-- <form method="post" action='<%= question.get_route %>/up' class="inline">
     <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">⬆️</button>
   </form>
   <form method="post" action='<%= question.get_route %>/down' class="inline">
     <button type="submit" name="submit_param" value="submit_value" class="vote-button no-padding">⬇️</button>
-  </form>
+  </form> -->
   <h2><a href='/questions/<%= question.id %>'><%= question.title %></a></h2>
   <p>
     Posted by: <a href='/users/<%= question.user.id %>'><%= question.user.username %></a><%=" | Up votes: #{question.votes.up.count} | Down votes: #{question.votes.down.count} | Answers: #{question.answers.count} | Last updated: #{question.updated_at.to_date}" %>

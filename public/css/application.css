@@ -69,13 +69,13 @@ article {
 
 article h2 {
   display: inline;
-  font-size: 10pt;
+  font-size: 14pt;
 }
 
 article:before {
   counter-increment: section;
-  color: #8C8C8C;
-  font-size: 10pt;
+  color: black;
+  font-size: 14pt;
   content: counter(section) ". ";
 }
 
@@ -86,12 +86,12 @@ article h2 a {
 
 article p {
   color: #8C8C8C;
-  font-size: 7pt;
-  margin: 3px 15px;
+  font-size: 10pt;
+  margin: 3px 0px 10px 20px;
 }
 
 input[type=text], input[type=password], input[type=email], textarea {
-  color: #8C8C8C;
+  color: black;
 }
 
 .inline {
@@ -218,4 +218,9 @@ input[type=text], input[type=password], input[type=email], textarea {
 
 .hidden {
   display: none;
+}
+
+.questions_list {
+  padding-left: 0px !important;
+  padding-top: 10px;
 }
