@@ -5,6 +5,7 @@ $(document).ready(function() {
   submitComment();
   renderEditForm();
   submitEdit();
+  deleteItem();
   clickVote();
 });
 
@@ -78,7 +79,7 @@ function submitComment() {
       data: data,
       method: method
     }).done(function(response) {
-      container.insert(response)
+      container.append(response)
     })
     $(this).remove();
     container.find('.new-comment-link').show();
@@ -132,6 +133,24 @@ function submitEdit() {
       console.log("Something went wrong!")
     });
     $(this).remove();
+  });
+};
+
+function deleteItem() {
+  $('div.question-box .comments-box .edit-box, div.answer-box .edit-box').on('submit', '#delete-item', function(event){
+    event.preventDefault();
+
+    var url = $(this).attr('action');
+    var container = $(this).closest('.detail-box');
+
+    $.ajax({
+      url: url,
+      method: 'delete'
+    }).done(function(response) {
+        container.hide();
+    }).fail(function(error) {
+      console.log("Something went wrong!")
+    })
   });
 };
 

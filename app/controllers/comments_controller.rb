@@ -25,5 +25,5 @@ delete '/comments/:id' do
   @redirect_url = @comment.get_redirect_route
   redirect "#{@redirect_url}" unless authorized_user?(@comment)
   @comment.destroy
-  redirect "#{@redirect_url}"
+  redirect "#{@redirect_url}" if !request.xhr?
 end

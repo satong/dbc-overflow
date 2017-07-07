@@ -25,5 +25,5 @@ delete '/answers/:id' do
   redirect "#{answer.get_redirect_route}" unless authorized_user?(answer)
   question =  answer.question.id
   answer.destroy
-  redirect "/questions/#{question}"
+  redirect "/questions/#{question}" if !request.xhr?
 end

@@ -2,7 +2,7 @@
 <form method="get" action="<%= detail.get_route %>/edit" class="right get-edit-form">
   <input type="submit" name="edit" value="Edit" class="btn btn-default inline btn-xs">
 </form>
-<form method="post" action="<%= detail.get_route %>" class="right">
+<form method="post" action="<%= detail.get_route %>" class="right" id="delete-item">
   <input type="hidden" name="_method" value="delete">
   <input type="submit" name="delete" value="Delete" class="btn btn-default inline btn-xs">
 </form>
