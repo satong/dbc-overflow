@@ -1,0 +1,12 @@
+<form action="<%= object.get_route %>" method="post" id="edit-form">
+  <h3>Edit your <%= object.class.name.downcase %></h3>
+  <% if object.class.name == "Question" %>
+  <input type="hidden" name="_method" value="put">
+  <label for="title">Title:</label>
+  <br>
+  <input type="text" name="title" value="<%= object.title %>">
+  <br>
+  <% end %>
+  <input type="hidden" name="_method" value="put">
+  <%= erb :'_body', layout: false, locals: {thing: object} %>
+</form>

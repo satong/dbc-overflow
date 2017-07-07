@@ -22,14 +22,23 @@ end
 get '/questions/:id/edit' do
   @question = Question.find(params[:id])
   redirect "/questions/#{params[:id]}" unless authorized_user?(@question)
-  erb :'questions/edit'
+  if request.xhr?
+    erb :'_edit', layout: false, locals: {object: @question}
+  else
+    erb :'questions/edit'
+  end
 end
 
 put '/questions/:id' do
   question = Question.find(params[:id])
   redirect "/questions/#{params[:id]}" unless authorized_user?(question)
   question.update_attributes(title: params[:title], body: params[:body])
-  redirect "/questions/#{params[:id]}"
+  if request.xhr?
+    content_type :json
+    {title: question.title, body: question.body}.to_json
+  else
+    redirect "/questions/#{params[:id]}"
+  end
 end
 
 

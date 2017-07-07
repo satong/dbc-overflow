@@ -3,6 +3,9 @@ $(document).ready(function() {
   submitAnswer();
   renderCommentForm();
   submitComment();
+  renderEditForm();
+  submitEdit();
+  deleteItem();
   clickVote();
 });
 
@@ -68,7 +71,7 @@ function submitComment() {
     var container = $(this).closest('.comments-box');
 
     var url = container.find('.new-comment-link').attr('href');
-    var method = $(this).attr('method')
+    var method = $(this).attr('method');
     var data = $(this).serialize();
 
     $.ajax({
@@ -80,6 +83,74 @@ function submitComment() {
     })
     $(this).remove();
     container.find('.new-comment-link').show();
+  });
+};
+
+function renderEditForm() {
+  $('.edit-box').on('submit', '.get-edit-form', function(event){
+    event.preventDefault();
+
+    var url = $(this).attr('action');
+    var method = $(this).attr('method');
+    var container = $(this).closest('.detail-box');
+
+    $.ajax({
+      url: url,
+      method: method
+    }).done(function(response) {
+      container.find('.body-text:first').hide();
+      container.find('.vote-box:first').hide();
+      container.find('.edit-box:first').after(response);
+    }).fail(function(error) {
+      console.log("Something went wrong!")
+    })
+  });
+};
+
+function submitEdit() {
+  $('.edit-master-box').on('submit', '#edit-form', function(event){
+    event.preventDefault();
+
+    var url = $(this).attr('action');
+    var data = $(this).serialize();
+    var container = $(this).closest('.detail-box');
+
+    console.log(url);
+    console.log(data);
+
+    $.ajax({
+      url: url,
+      data: data,
+      method: 'put'
+    }).done(function(response) {
+      container.find('.body-text:first').show();
+      container.find('.vote-box:first').show();
+      container.find('.detail-text:first').html(response.body);
+      if (response.title) {
+        $('#question-title').html(response.title);
+      }
+    }).fail(function(error) {
+      console.log("Something went wrong!")
+    });
+    $(this).remove();
+  });
+};
+
+function deleteItem() {
+  $('div.question-box .comments-box .edit-box, div.answer-box .edit-box').on('submit', '#delete-item', function(event){
+    event.preventDefault();
+
+    var url = $(this).attr('action');
+    var container = $(this).closest('.detail-box');
+
+    $.ajax({
+      url: url,
+      method: 'delete'
+    }).done(function(response) {
+        container.hide();
+    }).fail(function(error) {
+      console.log("Something went wrong!")
+    })
   });
 };
 

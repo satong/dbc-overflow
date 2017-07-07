@@ -1,4 +1,4 @@
-<h2><%=@question.title %></h2>
+<h2 id="question-title"><%=@question.title %></h2>
 <div class="question-box">
 <%= erb :"_details", layout: false, locals: {detail: @question} %>
 <br>
