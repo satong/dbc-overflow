@@ -1,8 +1,10 @@
-<h1><%= @user.username %> Profile Page</h1>
-<br>
-<h2>Questions posted</h2>
-<ul>
+<h3>Questions posted by <%= @user.username %></h3>
+<ul class="questions_list">
   <% @user.questions.each do |question| %>
-  <%= erb :"_question", layout: false, locals: {question: question} %>
+  <%= erb :"_index", layout: false, locals: {question: question} %>
   <% end %>
 </ul>
+<br>
+<% if current_user.id == @user.id %>
+<h4><a href="/questions/new">Create new question</a></h4>
+<% end %>

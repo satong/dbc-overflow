@@ -12,7 +12,7 @@ content_for_users = [
 ]
 
 # Seed questions
-content_for_questions = [
+content_for_indexs = [
   { :title => "What do nighthawks eat primarily?",
     :body  => Faker::Lorem.paragraph,
     :user_id => 1 },
@@ -50,5 +50,5 @@ content_for_answers = [
 ]
 
 User.create!(content_for_users)
-Question.create!(content_for_questions)
+Question.create!(content_for_indexs)
 Answer.create!(content_for_answers)
