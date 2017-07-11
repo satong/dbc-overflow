@@ -47,7 +47,7 @@ function submitAnswer() {
 };
 
 function renderCommentForm() {
-  $('.new-comment-link').on('click', function(event){
+  $('.question-box, .answer-box').on('click', '.new-comment-link', function(event){
     $(this).hide();
     event.preventDefault();
     var url = $(this).attr('href')
@@ -65,7 +65,7 @@ function renderCommentForm() {
 };
 
 function submitComment() {
-  $('.new-comment-submission').on('submit', '#new-comment-form', function(event) {
+  $('.question-box, .answer-box').on('submit', '#new-comment-form', function(event) {
     event.preventDefault();
 
     var container = $(this).closest('.comments-box');
@@ -87,7 +87,7 @@ function submitComment() {
 };
 
 function renderEditForm() {
-  $('.edit-box').on('submit', '.get-edit-form', function(event){
+  $('.question-box, .answer-box').on('submit', '.get-edit-form', function(event){
     event.preventDefault();
 
     var url = $(this).attr('action');
@@ -108,7 +108,7 @@ function renderEditForm() {
 };
 
 function submitEdit() {
-  $('.edit-master-box').on('submit', '#edit-form', function(event){
+  $('.question-box, .answer-box').on('submit', '#edit-form', function(event){
     event.preventDefault();
 
     var url = $(this).attr('action');
